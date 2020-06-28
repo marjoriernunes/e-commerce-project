@@ -1,0 +1,21 @@
+section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-left: 25px;
+  padding: 40px;
+}
+
+img {
+  max-width: 350px;
+  max-height: 350px;
+  height: auto;
+}
+
+.product-card {
+  align-content: center;
+  align-items: center;
+  padding: 30px;
+  flex: 0 25%;
+}

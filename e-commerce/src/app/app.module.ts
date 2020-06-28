@@ -11,6 +11,7 @@ import { DetailsComponent } from './pages/details/details.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { CardsComponent } from './pages/home/cards/cards.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CardsComponent } from './pages/home/cards/cards.component';
     DetailsComponent,
     LoginComponent,
     MenuComponent,
-    CardsComponent
+    CardsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
