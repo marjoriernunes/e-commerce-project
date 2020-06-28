@@ -1,0 +1,22 @@
+section {
+  width: 100%;
+  height: 75px;
+  background-color: rgb(14, 28, 51);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+a {
+  text-decoration: none;
+  text-transform: lowercase;
+  color: #d9d9d9;
+  padding: 10px;
+}
+
+a:hover {
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  color: #7ce6b3;
+}
