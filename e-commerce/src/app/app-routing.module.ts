@@ -1,11 +1,10 @@
-import { DetailsComponent } from './details/details.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HistoricComponent } from './historic/historic.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { HistoricComponent } from './pages/historic/historic.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
