@@ -1,22 +1,22 @@
-<section id="menu" class="col-12">
+<section id="menu">
   <nav>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <a [routerLink]="['/home']">
-            <img src="assets/images/logo.png" class="brand-logo" alt="Ms. Marge">
-          </a>
-        </div>
-        <div class="col-md-6">
-          <!-- todo - dropdown select -->
-          <a href="" class="menu">Pesquisa</a>
-        </div>
-        <div class="col">
-          <!-- todo - dropdown select -->
-          <a href="" class="menu">Minha Conta</a>
-          <!-- todo - ícone carrinho, quantidade de itens no Carrinho  -->
-          <a [routerLink]="['/carrinho-de-compras']" class="menu">Carrinho</a>
-        </div>
+    <div class="row d-flex align-items-center">
+      <div class="col-3">
+        <a [routerLink]="['/home']">
+          <img src="assets/images/logo.png" class="brand-logo" alt="Ms. Marge">
+        </a>
+      </div>
+      <div class="col-md-6 text-center">
+        <!-- todo - dropdown select -->
+        <a href="" class="menu">Pesquisa</a>
+      </div>
+      <div class="col-3 d-flex flex-row-reverse">
+        <!-- todo - dropdown select -->
+        <a matTooltip="Histórico de compras" [routerLink]="['/historico-de-compras']" class="menu">Minha Conta</a>
+        <!-- todo - ícone carrinho, quantidade de itens no Carrinho  -->
+        <a matTooltip="Carrinho de compras" [routerLink]="['/carrinho-de-compras']" class="menu">
+          Carrinho de compras
+        </a>
       </div>
     </div>
   </nav>
