@@ -13,6 +13,9 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { CardsComponent } from './pages/home/cards/cards.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
+import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +31,9 @@ import { FooterComponent } from './shared/footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
