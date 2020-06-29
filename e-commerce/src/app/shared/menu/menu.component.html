@@ -1,13 +1,24 @@
-<section id="menu">
+<section id="menu" class="col-12">
   <nav>
-    <a [routerLink]="['/home']">
-      <img src="assets/images/logo.png" class="brand-logo" alt="Ms. Marge">
-    </a>
-    <!-- todo - dropdown select -->
-    <a href="">Pesquisa</a>
-    <!-- todo - dropdown select -->
-    <a href="">Minha Conta</a>
-    <!-- todo - ícone carrinho, quantidade de itens no Carrinho  -->
-    <a [routerLink]="['/carrinho-de-compras']">Carrinho</a>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <a [routerLink]="['/home']">
+            <img src="assets/images/logo.png" class="brand-logo" alt="Ms. Marge">
+          </a>
+        </div>
+        <div class="col-md-6">
+          <!-- todo - dropdown select -->
+          <a href="" class="menu">Pesquisa</a>
+        </div>
+        <div class="col">
+          <!-- todo - dropdown select -->
+          <a href="" class="menu">Minha Conta</a>
+          <!-- todo - ícone carrinho, quantidade de itens no Carrinho  -->
+          <a [routerLink]="['/carrinho-de-compras']" class="menu">Carrinho</a>
+        </div>
+      </div>
+    </div>
   </nav>
 </section>
+

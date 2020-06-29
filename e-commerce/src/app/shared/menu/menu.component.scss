@@ -2,9 +2,9 @@ section {
   width: 100%;
   height: 75px;
   background-color: #DEE2DF;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-around;
 }
 
 a {
@@ -14,7 +14,7 @@ a {
   padding: 10px;
 }
 
-a:hover {
+.menu:hover {
   transition-duration: 0.5s;
   transition-timing-function: linear;
   transition-delay: 0s;

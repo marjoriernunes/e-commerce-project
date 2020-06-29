@@ -10,6 +10,7 @@ section {
 img {
   max-width: 350px;
   max-height: 350px;
+  margin-bottom: 10px;
   height: auto;
 }
 
@@ -23,5 +24,4 @@ img {
 .mat-primary {
   background-color: #D3B4A1;
   color: #6B5F54;
-  z-index: -1;
 }
