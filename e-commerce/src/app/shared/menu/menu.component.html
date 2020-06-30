@@ -6,13 +6,14 @@
           <img src="assets/images/logo.png" class="brand-logo" alt="Ms. Marge">
         </a>
       </div>
-      <div class="col-3 d-flex flex-row-reverse d-flex justify-content-around">
-        <!-- todo - dropdown select -->
-        <a matTooltip="Minha conta" [routerLink]="['/login']" class="menu">
-          <mat-icon> person_pin</mat-icon>
+      <div class="col-3 d-flex flex-row-reverse">
+        <a *ngIf="user === null" [routerLink]="['/login']" class="menu d-flex align-self-center">
+          <mat-icon> person_pin</mat-icon> <span>Login</span>
         </a>
-        <!-- todo - validar se tem login -->
-        <a matTooltip="Histórico de compras" [routerLink]="['/historico-de-compras']" class="menu">
+        <a *ngIf="user !== null" class="menu d-flex align-self-center">
+          <mat-icon> person_pin</mat-icon> <span (click)="logout()">Logout</span>
+        </a>
+        <a *ngIf="user !== null" matTooltip="Histórico de compras" [routerLink]="['/historico-de-compras']" class="menu">
           <mat-icon>description</mat-icon>
         </a>
         <!-- todo - quantidade de itens no Carrinho  -->

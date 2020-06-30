@@ -17,7 +17,7 @@
             {{ quantityCounter }}
             <mat-icon (click)="increaseCounter()">add</mat-icon>
           </div>
-          <button mat-flat-button color="primary">Adicionar ao carrinho</button>
+          <button mat-flat-button color="primary" (click)="addToCart()">Adicionar ao carrinho</button>
         </div>
         <div class="row warningMessage" *ngIf="this.message !== null">{{ message }}</div>
       </div>
