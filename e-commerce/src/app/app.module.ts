@@ -18,6 +18,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatBadgeModule } from '@angular/material/badge';
+
+
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatTooltipModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

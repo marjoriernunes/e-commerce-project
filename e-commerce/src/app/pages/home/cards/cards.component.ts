@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductList } from './../../../shared/mock/products-list/product-list';
+
 
 @Component({
   selector: 'app-cards',
@@ -7,17 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
+  products = [];
 
   constructor(
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.products = ProductList;
   }
 
-  productDetails() {
-    //todo adicionar o id do produto
-    this.router.navigate(['/detalhes-do-produto']);
+  productDetails(id): void {
+    this.router.navigate(['/detalhes-do-produto', id]);
   }
 
 }

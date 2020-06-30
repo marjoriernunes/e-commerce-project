@@ -1,23 +1,23 @@
 <section id="menu">
   <nav>
     <div class="row d-flex align-items-center">
-      <div class="col-3">
+      <div class="col-9">
         <a [routerLink]="['/home']">
           <img src="assets/images/logo.png" class="brand-logo" alt="Ms. Marge">
         </a>
       </div>
-      <div class="col-md-6 text-center">
+      <div class="col-3 d-flex flex-row-reverse d-flex justify-content-around">
         <!-- todo - dropdown select -->
-        <a href="" class="menu">Pesquisa</a>
-      </div>
-      <div class="col-3 d-flex flex-row-reverse">
-        <!-- todo - dropdown select -->
-        <a matTooltip="Histórico de compras" [routerLink]="['/historico-de-compras']" class="menu">
-          <!-- <mat-icon svgIcon="nc-shop-cart"></mat-icon> -->
+        <a matTooltip="Minha conta" [routerLink]="['/login']" class="menu">
+          <mat-icon> person_pin</mat-icon>
         </a>
-        <!-- todo - ícone carrinho, quantidade de itens no Carrinho  -->
+        <!-- todo - validar se tem login -->
+        <a matTooltip="Histórico de compras" [routerLink]="['/historico-de-compras']" class="menu">
+          <mat-icon>description</mat-icon>
+        </a>
+        <!-- todo - quantidade de itens no Carrinho  -->
         <a matTooltip="Carrinho de compras" [routerLink]="['/carrinho-de-compras']" class="menu">
-          Carrinho de compras
+          <mat-icon matBadge="{{ qtde }}" matBadgeColor="warn">shopping_basket</mat-icon>
         </a>
       </div>
     </div>

@@ -7,6 +7,12 @@ img {
   max-width: 500px;
 }
 
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
 .mat-primary {
   background-color: #F7F7F9;
   border: 2px solid #D3B4A1;
@@ -43,5 +49,11 @@ img {
 .warningMessage {
   color: rgb(131, 11, 11);
   font-size: 15px;
-  padding-top: 10px; 
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 1400px) {
+   img {
+     padding: 40px;
+   }
 }
