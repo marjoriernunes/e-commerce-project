@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  qtde = 4;
+  cartQuantity;
   user = true;
   // todo validar login localStorage
   constructor() { }
 
   ngOnInit(): void {
+    this.cartQuantity = parseInt(localStorage.getItem('cartQuantity'), 0);
+    if (this.cartQuantity === 0) {
+      this.cartQuantity = null;
+    }
   }
 
   logout(): void {

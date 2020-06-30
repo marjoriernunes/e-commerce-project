@@ -27,6 +27,13 @@ nav {
   margin: 5px;
 }
 
+.mat-primary:disabled {
+  background-color: #cbcbcf;
+  color: #6B5F54;
+  border-radius: 30px;
+  border: 2px solid rgb(155, 146, 146);
+}
+
 .totalProcuts {
   background-color: #F7F7F9;
   border: 2px solid #D3B4A1;

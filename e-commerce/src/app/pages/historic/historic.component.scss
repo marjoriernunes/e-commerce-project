@@ -1,0 +1,18 @@
+
+section {
+  height: auto;
+  padding: 50px;
+  width: 100%;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+img {
+  max-width: 150px;
+  border-radius: 100px;
+  padding: 15px;
+}

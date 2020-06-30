@@ -13,6 +13,7 @@ export class DetailsComponent implements OnInit {
   quantityCounter: number;
   maxStock: number;
   message: string;
+  disabledButton = false;
 
   constructor() { }
 
@@ -22,6 +23,10 @@ export class DetailsComponent implements OnInit {
     this.maxStock = 2;
     const urlId = location.pathname.split('/')[2];
     this.getProduct(urlId);
+    if (this.maxStock === 0) {
+      this.disabledButton = true;
+      this.message = 'Este produto está esgotado no momento';
+    }
   }
 
   getProduct(id): void {
@@ -42,7 +47,7 @@ export class DetailsComponent implements OnInit {
 
   increaseCounter(): void {
     if (this.quantityCounter === this.maxStock) {
-      this.message = 'Ops! Temos apenas ' + this.maxStock + ' itens disponíveis no estoque :/';
+      this.message = 'Ops! Não temos mais unidades disponíveis no estoque :/';
       return;
     } else {
       this.quantityCounter = this.quantityCounter + 1;
