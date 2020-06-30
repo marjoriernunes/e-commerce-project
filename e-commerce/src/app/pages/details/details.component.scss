@@ -1,0 +1,47 @@
+section {
+  height: 100vh;
+  width: 100%;
+}
+
+img {
+  max-width: 500px;
+}
+
+.mat-primary {
+  background-color: #F7F7F9;
+  border: 2px solid #D3B4A1;
+  border-radius: 30px;
+  color: #6B5F54;
+  margin: 5px;
+}
+
+.mat-primary:hover{
+  background-color: #D3B4A1;
+  border-radius: 30px;
+  margin: 5px;
+}
+
+.totalProcuts {
+  background-color: #F7F7F9;
+  border: 2px solid #D3B4A1;
+  border-radius: 30px;
+  font-size: 20px;
+  color: #6B5F54;
+  margin: 5px;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mat-icon {
+  line-height: 1.7;
+  font-size: 20px;
+  color: #aa988d;
+}
+
+.warningMessage {
+  color: rgb(131, 11, 11);
+  font-size: 15px;
+  padding-top: 10px; 
+}

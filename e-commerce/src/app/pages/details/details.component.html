@@ -1,6 +1,24 @@
-<section #product>
+<app-menu></app-menu>
+<section #product class="d-flex align-items-center">
   <div class="container">
-    <div class="col-6">work</div>
-    <div class="col-6">yes</div>
+    <div class="row">
+      <div class="col-6 align-self-center">
+        <img src="assets/images/products/product-01.jpg" alt="" class="rounded">
+      </div>
+      <div class="col-6 align-self-center">
+        <p>Nome do produto</p>
+        <p>Descrição</p>
+        <div class="row">
+          <div class="totalProcuts d-flex justify-content-around align-self-center">
+            <mat-icon (click)="decreaseCounter()">remove</mat-icon>
+            {{ quantityCounter }}
+            <mat-icon (click)="increaseCounter()">add</mat-icon>
+          </div>
+          <button mat-flat-button color="primary">Adicionar ao carrinho</button>
+        </div>
+        <div class="row warningMessage" *ngIf="this.message !== null">{{ message }}</div>
+      </div>
+    </div>
   </div>
 </section>
+<app-footer></app-footer>
