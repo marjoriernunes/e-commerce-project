@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductList } from './../../shared/mock/products-list/product-list';
 
 @Component({
   selector: 'app-details',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
+  data = [];
+  showProduct = [];
   quantityCounter: number;
   maxStock: number;
   message: string;
@@ -14,8 +17,18 @@ export class DetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.data = ProductList;
     this.quantityCounter = 0;
     this.maxStock = 2;
+    const urlId = location.pathname.split('/')[2];
+    this.getProduct(urlId);
+  }
+
+  getProduct(id): void {
+    const selectedProduct = this.data.filter((product) => {
+      return product.id === parseInt(id, 0);
+    });
+    this.showProduct = selectedProduct;
   }
 
   decreaseCounter(): void {
@@ -35,5 +48,9 @@ export class DetailsComponent implements OnInit {
       this.quantityCounter = this.quantityCounter + 1;
       this.message = '';
     }
+  }
+
+  addToCart() {
+
   }
 }

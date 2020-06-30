@@ -3,14 +3,14 @@
 </nav>
 <section #product class="d-flex align-items-center">
   <div class="container">
-    <div class="row">
+    <div class="row" *ngFor="let option of showProduct">
       <div class="col-6 align-self-center">
-        <img src="assets/images/products/product-01.jpg" alt="" class="rounded">
+        <img src="{{ option.imgPath }}" alt="{{ option.imgDescription }}" class="rounded">
       </div>
       <div class="col-6 align-self-center">
-        <p>Nome do produto</p>
-        <p>Descrição</p>
-        <p>Preço</p>
+        <p><strong>{{ option.productName }}</strong></p>
+        <p>{{ option.description }}</p>
+        <p>R$ {{ option.price }}</p>
         <div class="row">
           <div class="totalProcuts d-flex justify-content-around align-self-center">
             <mat-icon (click)="decreaseCounter()">remove</mat-icon>
