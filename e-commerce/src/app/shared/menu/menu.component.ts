@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   qtde = 4;
-  user = null;
+  user = true;
   // todo validar login localStorage
   constructor() { }
 
