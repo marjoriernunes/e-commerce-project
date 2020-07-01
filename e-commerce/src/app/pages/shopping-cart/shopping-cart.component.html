@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-12">
           <h4 *ngIf="!showTable" class="col-12 mt-5 text-center">
-            Você ainda não adicionou produtos ao seu carrinho de compras :/
+            Você não tem produtos adicionados ao seu carrinho de compras :/
           </h4>
           <table mat-table *ngIf="showTable" [dataSource]="dataSource" class="col-12 mt-5">
             <ng-container matColumnDef="img">

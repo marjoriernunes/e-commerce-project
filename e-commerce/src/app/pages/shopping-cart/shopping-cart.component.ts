@@ -7,10 +7,28 @@ export interface ProductElement {
   imgPath: string;
   productPrice: number;
   quantityStock: number;
-  index: number;
 }
 
-const ELEMENT_DATA: ProductElement[] = [];
+const ELEMENT_DATA: ProductElement[] = [
+  {
+    productName : 'aparador',
+    imgPath: 'assets/images/products/product-01.jpg',
+    quantityStock: 2,
+    productPrice: 499.85,
+  },
+  {
+    productName : 'poltrona',
+    imgPath: 'assets/images/products/product-02.jpg',
+    quantityStock: 2,
+    productPrice: 615.29,
+  },
+  {
+    productName : 'poltrona',
+    imgPath: 'assets/images/products/product-03.jpg',
+    quantityStock: 2,
+    productPrice: 709.93,
+  }
+];
 
 @Component({
   selector: 'app-shopping-cart',
@@ -29,6 +47,7 @@ export class ShoppingCartComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.showTable = true;
     this.productData.currentProduct.subscribe(addNewProduct => this.addNewProduct = addNewProduct);
     this.recieveProduct();
   }
@@ -36,9 +55,8 @@ export class ShoppingCartComponent implements OnInit {
   recieveProduct(): void {
     this.productData.currentProduct.subscribe(addNewProduct => this.addNewProduct = addNewProduct);
     if (this.addNewProduct.length === 0) {
-      this.showTable = false;
+      // this.showTable = false;
     }else{
-      this.showTable = true;
       this.dataSource.push(this.addNewProduct);
       this.cartQuantity = this.dataSource.length;
       localStorage.setItem('cartQuantity', this.cartQuantity.toString());
@@ -48,9 +66,13 @@ export class ShoppingCartComponent implements OnInit {
   removeItem(index): void {
     const array = this.dataSource;
     const newArray = _.remove(array, function(n) {
-      return n === index;
+      return n !== index;
     });
-    this.dataSource = newArray;
+    if (newArray.length === 0) {
+      this.showTable = false;
+    } else {
+      this.dataSource = newArray;
+    }
   }
 
   confirmPurchase() {

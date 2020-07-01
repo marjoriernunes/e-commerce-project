@@ -17,14 +17,14 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.user = localStorage.getItem('user');
     this.cartQuantity = parseInt(localStorage.getItem('cartQuantity'), 0);
-    if (this.cartQuantity === 0 ) {
+    if (this.cartQuantity === 0) {
       this.cartQuantity = null;
     }
   }
 
   logout(): void {
     localStorage.removeItem('user');
-    window.location.reload();
+    this.router.navigate(['/home']);
   }
 
 }
