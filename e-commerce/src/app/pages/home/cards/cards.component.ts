@@ -60,7 +60,6 @@ export class CardsComponent implements OnInit, OnChanges {
             });
           }
           this.products = this.searchFilter;
-          console.log(this.products);
         })
       )
       .subscribe();

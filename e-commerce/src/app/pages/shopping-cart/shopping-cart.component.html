@@ -13,7 +13,7 @@
             <ng-container matColumnDef="img">
               <th mat-header-cell *matHeaderCellDef></th>
               <td mat-cell *matCellDef="let element">
-                <img src="{{element.img}}" alt="Imagem do produto adquirido">
+                <img src="{{element.imgPath}}" alt="Imagem do produto adquirido">
               </td>
             </ng-container>
             <ng-container matColumnDef="productName">
@@ -26,12 +26,12 @@
             </ng-container>
             <ng-container matColumnDef="quantity">
               <th mat-header-cell *matHeaderCellDef> Quantidade </th>
-              <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.quantityStock}} </td>
             </ng-container>
             <ng-container matColumnDef="deleteProduct">
               <th mat-header-cell *matHeaderCellDef> Excluir produto </th>
               <td mat-cell *matCellDef="let element">
-                <mat-icon (click)="removeItem(element.index)">delete</mat-icon>
+                <mat-icon (click)="removeItem(element)">delete</mat-icon>
               </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

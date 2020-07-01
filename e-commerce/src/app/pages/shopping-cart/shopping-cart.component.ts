@@ -4,9 +4,9 @@ import * as _ from 'lodash';
 
 export interface ProductElement {
   productName: string;
-  img: string;
+  imgPath: string;
   productPrice: number;
-  quantity: number;
+  quantityStock: number;
   index: number;
 }
 
@@ -30,12 +30,11 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.productData.currentProduct.subscribe(addNewProduct => this.addNewProduct = addNewProduct);
-    console.log('produto do detalhe', this.addNewProduct);
+    this.recieveProduct();
   }
 
   recieveProduct(): void {
     this.productData.currentProduct.subscribe(addNewProduct => this.addNewProduct = addNewProduct);
-    console.log('produto do detalhe', this.addNewProduct.length);
     if (this.addNewProduct.length === 0) {
       this.showTable = false;
     }else{
@@ -43,16 +42,18 @@ export class ShoppingCartComponent implements OnInit {
       this.dataSource.push(this.addNewProduct);
       this.cartQuantity = this.dataSource.length;
       localStorage.setItem('cartQuantity', this.cartQuantity.toString());
-      console.log('source', this.dataSource);
     }
   }
 
-  removeItem(index) {
-    let array = [0, 1, 2];
-    let events = _.remove(array, function(n) {
+  removeItem(index): void {
+    const array = this.dataSource;
+    const newArray = _.remove(array, function(n) {
       return n === index;
     });
-    console.log(events);
+    this.dataSource = newArray;
   }
-  confirmPurchase() {}
+
+  confirmPurchase() {
+    //página de sucesso
+  }
 }

@@ -40,7 +40,6 @@ export class DetailsComponent implements OnInit {
       return product.id === parseInt(id, 0);
     });
     this.showProduct = selectedProduct;
-    console.log(this.showProduct);
   }
 
   decreaseCounter(): void {
