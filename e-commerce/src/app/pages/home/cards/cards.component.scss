@@ -21,7 +21,19 @@ img {
   flex: 0 25%;
 }
 
-.mat-primary {
+.mat-flat-button {
   background-color: #D3B4A1;
   color: #6B5F54;
+}
+
+::ng-deep {
+  .mat-focused .mat-form-field-label {
+    color: #6B5F54 !important;
+   }
+   .mat-form-field-underline {
+    background-color: #D3B4A1 !important;
+  }
+  .mat-form-field-ripple {
+    background-color: #D3B4A1 !important;
+   }
 }

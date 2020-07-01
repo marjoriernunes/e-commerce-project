@@ -1,11 +1,28 @@
 <section #productList>
-  <div class="product-card" *ngFor="let data of products">
-    <img src="{{ data.imgPath }}" class="rounded" alt="{{ data.imgDescription }}">
-    <div>
-      <h6>{{ data.productName }}</h6>
-      <p>{{ data.description }}</p>
-      <p>R$ {{ data.price }}</p>
-      <button mat-flat-button color="primary" (click)="productDetails(data.id)">+ Veja mais</button>
+  <div class="container d-flex justify-content-center">
+    <div class="row">
+      <div class="col-8">
+        <form [formGroup]="searchForm">
+          <mat-form-field floatLabel="never">
+            <mat-icon matPrefix>search</mat-icon>
+            <input formControlName="searchControl" matInput placeholder="Pesquisar" autocomplete="off">
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="products.length === 0">
+    <h4>Ops! Não encontramos os produtos que você está procurando :(</h4>
+  </div>
+  <div class="row">
+    <div class="product-card" *ngFor="let data of products">
+      <img src="{{ data.imgPath }}" class="rounded" alt="{{ data.imgDescription }}">
+      <div>
+        <h6>{{ data.productName }}</h6>
+        <p>{{ data.description }}</p>
+        <p>R$ {{ data.price }}</p>
+        <button mat-flat-button color="primary" (click)="productDetails(data.id)">+ Veja mais</button>
+      </div>
     </div>
   </div>
 </section>

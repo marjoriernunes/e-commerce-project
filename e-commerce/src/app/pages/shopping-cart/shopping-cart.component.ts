@@ -2,7 +2,7 @@ import { DataService } from './../../shared/service/data.service';
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 
-export interface PeriodicElement {
+export interface ProductElement {
   productName: string;
   img: string;
   productPrice: number;
@@ -10,11 +10,7 @@ export interface PeriodicElement {
   index: number;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {img: 'assets/images/products/product-08.jpg', productName: 'aparador', productPrice: 1.0079, quantity: 1, index: 0},
-  {img: 'assets/images/products/product-08.jpg', productName: 'aparador', productPrice: 4.0026, quantity: 2, index: 1},
-  {img: 'assets/images/products/product-08.jpg', productName: 'aparador', productPrice: 6.941, quantity: 1, index: 2}
-];
+const ELEMENT_DATA: ProductElement[] = [];
 
 @Component({
   selector: 'app-shopping-cart',
@@ -25,7 +21,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ShoppingCartComponent implements OnInit {
   displayedColumns: string[] = ['img', 'productName', 'productPrice', 'quantity', 'deleteProduct'];
   dataSource = ELEMENT_DATA;
-
   cartQuantity: number;
   addNewProduct;
 
@@ -34,10 +29,20 @@ export class ShoppingCartComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.productData.currentProduct.subscribe(addNewProduct => this.addNewProduct = addNewProduct);
     this.cartQuantity = this.dataSource.length;
     localStorage.setItem('cartQuantity', this.cartQuantity.toString());
+    this.recieveProduct();
+  }
+
+  recieveProduct(): void {
+    console.log('atual lista produto', this.dataSource);
+    this.productData.currentProduct.subscribe(addNewProduct => this.addNewProduct = addNewProduct);
     console.log('produto do detalhe', this.addNewProduct);
+    if (this.addNewProduct === []) {
+      return;
+    }else{
+      this.dataSource.push(this.addNewProduct);
+    }
   }
 
   removeItem(index) {
