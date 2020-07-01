@@ -10,8 +10,6 @@ export interface ProductElement {
   index: number;
 }
 
-const ELEMENT_DATA: ProductElement[] = [];
-
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
@@ -20,9 +18,10 @@ const ELEMENT_DATA: ProductElement[] = [];
 
 export class ShoppingCartComponent implements OnInit {
   displayedColumns: string[] = ['img', 'productName', 'productPrice', 'quantity', 'deleteProduct'];
-  dataSource = ELEMENT_DATA;
+  dataSource = [];
   cartQuantity: number;
   addNewProduct;
+  showTable: boolean;
 
   constructor(
     private productData: DataService
@@ -30,18 +29,20 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartQuantity = this.dataSource.length;
-    localStorage.setItem('cartQuantity', this.cartQuantity.toString());
     this.recieveProduct();
   }
 
   recieveProduct(): void {
-    console.log('atual lista produto', this.dataSource);
     this.productData.currentProduct.subscribe(addNewProduct => this.addNewProduct = addNewProduct);
     console.log('produto do detalhe', this.addNewProduct);
-    if (this.addNewProduct === []) {
-      return;
+    if (this.addNewProduct.length === 0) {
+      this.showTable = false;
     }else{
+      this.showTable = true;
       this.dataSource.push(this.addNewProduct);
+      this.cartQuantity = this.dataSource.length;
+      localStorage.setItem('cartQuantity', this.cartQuantity.toString());
+      console.log('source', this.dataSource, this.cartQuantity);
     }
   }
 
