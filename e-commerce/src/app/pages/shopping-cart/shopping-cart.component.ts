@@ -10,31 +10,32 @@ export interface ProductElement {
   index: number;
 }
 
+const ELEMENT_DATA: ProductElement[] = [];
+
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })
-
 export class ShoppingCartComponent implements OnInit {
   displayedColumns: string[] = ['img', 'productName', 'productPrice', 'quantity', 'deleteProduct'];
-  dataSource = [];
+  dataSource = ELEMENT_DATA;
+  showTable: boolean;
   cartQuantity: number;
   addNewProduct;
-  showTable: boolean;
 
   constructor(
     private productData: DataService
   ) { }
 
   ngOnInit(): void {
-    this.cartQuantity = this.dataSource.length;
-    this.recieveProduct();
+    this.productData.currentProduct.subscribe(addNewProduct => this.addNewProduct = addNewProduct);
+    console.log('produto do detalhe', this.addNewProduct);
   }
 
   recieveProduct(): void {
     this.productData.currentProduct.subscribe(addNewProduct => this.addNewProduct = addNewProduct);
-    console.log('produto do detalhe', this.addNewProduct);
+    console.log('produto do detalhe', this.addNewProduct.length);
     if (this.addNewProduct.length === 0) {
       this.showTable = false;
     }else{
@@ -42,7 +43,7 @@ export class ShoppingCartComponent implements OnInit {
       this.dataSource.push(this.addNewProduct);
       this.cartQuantity = this.dataSource.length;
       localStorage.setItem('cartQuantity', this.cartQuantity.toString());
-      console.log('source', this.dataSource, this.cartQuantity);
+      console.log('source', this.dataSource);
     }
   }
 
@@ -53,7 +54,5 @@ export class ShoppingCartComponent implements OnInit {
     });
     console.log(events);
   }
-
   confirmPurchase() {}
-
 }
