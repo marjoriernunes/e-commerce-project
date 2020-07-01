@@ -8,16 +8,15 @@
       </div>
       <div class="col-5 d-flex flex-row-reverse">
         <a *ngIf="user === null" [routerLink]="['/login']" class="menu d-flex align-self-center">
-          <mat-icon> person_pin</mat-icon> <span class="text">Login</span>
+          <mat-icon> person_pin</mat-icon> <span class="text">login</span>
         </a>
-        <a *ngIf="user !== null" class="menu d-flex align-self-center">
-          <mat-icon> person_pin</mat-icon> <span  class="text" (click)="logout()">Logout</span>
-        </a>
+        <span *ngIf="user !== null" class="logout menu d-flex align-self-center" (click)="logout()">
+          <mat-icon> person_pin</mat-icon> <span  class="text">logout</span>
+        </span>
         <a *ngIf="user !== null" matTooltip="Histórico de compras" [routerLink]="['/historico-de-compras']" class="menu d-flex align-self-center">
           <mat-icon>description</mat-icon> <span class="text">meus pedidos</span>
         </a>
-        <!-- todo - quantidade de itens no Carrinho  -->
-        <a matTooltip="Carrinho de compras" [routerLink]="['/carrinho-de-compras']" class="menu d-flex align-self-center">
+        <a *ngIf="user !== null" matTooltip="Carrinho de compras" [routerLink]="['/carrinho-de-compras']" class="menu d-flex align-self-center">
           <mat-icon matBadge="{{ cartQuantity }}" matBadgeColor="warn">shopping_basket</mat-icon> <span class="text">carrinho</span>
         </a>
       </div>

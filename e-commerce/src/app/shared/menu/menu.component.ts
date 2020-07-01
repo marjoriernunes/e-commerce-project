@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   cartQuantity;
-  user = true;
+  user: string;
   // todo validar login localStorage
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.user = localStorage.getItem('user');
     this.cartQuantity = parseInt(localStorage.getItem('cartQuantity'), 0);
     if (this.cartQuantity === 0) {
       this.cartQuantity = null;
@@ -19,7 +23,8 @@ export class MenuComponent implements OnInit {
   }
 
   logout(): void {
-    //tirar user localStorage
+    localStorage.removeItem('user');
+    window.location.reload();
   }
 
 }

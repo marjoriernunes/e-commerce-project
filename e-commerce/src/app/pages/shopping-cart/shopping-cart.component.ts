@@ -1,3 +1,4 @@
+import { DataService } from './../../shared/service/data.service';
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 
@@ -26,12 +27,17 @@ export class ShoppingCartComponent implements OnInit {
   dataSource = ELEMENT_DATA;
 
   cartQuantity: number;
+  addNewProduct;
 
-  constructor() { }
+  constructor(
+    private productData: DataService
+  ) { }
 
   ngOnInit(): void {
+    this.productData.currentProduct.subscribe(addNewProduct => this.addNewProduct = addNewProduct);
     this.cartQuantity = this.dataSource.length;
     localStorage.setItem('cartQuantity', this.cartQuantity.toString());
+    console.log('produto do detalhe', this.addNewProduct);
   }
 
   removeItem(index) {

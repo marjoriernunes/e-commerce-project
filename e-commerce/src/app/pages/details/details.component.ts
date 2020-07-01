@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { DataService } from './../../shared/service/data.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ProductList } from './../../shared/mock/products-list/product-list';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -14,13 +16,17 @@ export class DetailsComponent implements OnInit {
   maxStock: number;
   message: string;
   disabledButton = false;
+  addNewProduct;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private productData: DataService
+  ) { }
 
   ngOnInit(): void {
+    this.productData.currentProduct.subscribe(addNewProduct => this.addNewProduct = addNewProduct);
     this.data = ProductList;
     this.quantityCounter = 0;
-    this.maxStock = 2;
     const urlId = location.pathname.split('/')[2];
     this.getProduct(urlId);
     if (this.maxStock === 0) {
@@ -34,6 +40,7 @@ export class DetailsComponent implements OnInit {
       return product.id === parseInt(id, 0);
     });
     this.showProduct = selectedProduct;
+    console.log(this.showProduct);
   }
 
   decreaseCounter(): void {
@@ -55,7 +62,14 @@ export class DetailsComponent implements OnInit {
     }
   }
 
-  addToCart() {
-
+  addToCart(): void {
+    const userActive = localStorage.getItem('user');
+    if (userActive !== null) {
+      this.productData.addProduct(this.showProduct);
+      this.router.navigate(['/carrinho-de-compras']);
+    } else {
+      this.disabledButton = true;
+      this.message = 'Você precisa fazer seu login para adicionar o produto ao carrinho de compras';
+    }
   }
 }

@@ -5,11 +5,12 @@ section {
   padding-top: 15px;
 }
 
-a {
+a, .logout {
   text-decoration: none;
   text-transform: lowercase;
   color: #6B5F54;
   padding: 10px;
+  cursor: pointer;
 }
 
 .menu:hover {

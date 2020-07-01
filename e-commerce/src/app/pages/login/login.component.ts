@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   async ngOnInit() {
+    localStorage.setItem('user', 'active');
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/home';
     this.form = this.fb.group({
       username: ['', Validators.email],

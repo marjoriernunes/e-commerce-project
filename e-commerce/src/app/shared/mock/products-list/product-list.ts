@@ -1,6 +1,7 @@
 export const ProductList: any[] = [
     {
       id: 1,
+      quantityStock: 2,
       productName : 'aparador buffet',
       description : 'Aparador branco acetinado',
       price: 429.79,
@@ -9,6 +10,7 @@ export const ProductList: any[] = [
     },
     {
       id: 2,
+      quantityStock: 2,
       productName : 'aparador buffet',
       description : 'Aparador coloridos com duas portas',
       price: 529.99,
@@ -17,6 +19,7 @@ export const ProductList: any[] = [
     },
     {
       id: 3,
+      quantityStock: 2,
       productName : 'aparador',
       description : 'Aparador com compartimentos coloridos',
       price: 499.85,
@@ -25,6 +28,7 @@ export const ProductList: any[] = [
     },
     {
       id: 4,
+      quantityStock: 2,
       productName : 'poltrona',
       description : 'Poltrona de base metálica',
       price: 615.29,
@@ -33,6 +37,7 @@ export const ProductList: any[] = [
     },
     {
       id: 5,
+      quantityStock: 2,
       productName : 'poltrona',
       description : 'Poltrona de estrutura de madeira',
       price: 709.93,
@@ -41,6 +46,7 @@ export const ProductList: any[] = [
     },
     {
       id: 6,
+      quantityStock: 2,
       productName : 'poltrona e puff',
       description : 'Poltrona em madeira e couro',
       price: 1029.99,
@@ -49,6 +55,7 @@ export const ProductList: any[] = [
     },
     {
       id: 7,
+      quantityStock: 2,
       productName : 'estante',
       description : 'Estante de madeira mdf',
       price: 329.99,
@@ -57,6 +64,7 @@ export const ProductList: any[] = [
     },
     {
       id: 8,
+      quantityStock: 2,
       productName : 'guarda-roupa',
       description : 'Conjunto de guarda-roupa e estante colorido',
       price: 1289.99,
@@ -65,6 +73,7 @@ export const ProductList: any[] = [
     },
     {
       id: 9,
+      quantityStock: 2,
       productName : 'armário',
       description : 'Armário em tons pastéis',
       price: 849.79,
